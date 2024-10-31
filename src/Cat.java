@@ -14,6 +14,7 @@ public class Cat extends Animal {
     }
 
 
+
     void disployInfo(){
         System.out.println(name + " " + age);
     }
@@ -34,7 +35,12 @@ public class Cat extends Animal {
     @Override
     void punch(Animal enemy) {
         Random rnd = new Random();
-        int punch = attack + rnd.nextInt(-5, 5);
+        int damageBonus = 0;
+        for(Weapon weap : weapons){
+            damageBonus += weap.damagePlus;
+        }
+
+        int punch = attack + damageBonus + rnd.nextInt(-5, 5);
         enemy.hp -= punch;
         System.out.println(name + " ударил палкой c силой "+ punch + " " + enemy.name + " , у противника" +
                 "осталось хп: " + enemy.hp);

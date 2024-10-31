@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Animal {
     String name;
     protected int age;
@@ -6,4 +8,9 @@ public class Animal {
 
     void punch(Animal enemy){
     }
+
+    void addWeapon (Weapon weapon){
+        this.weapons.add(weapon);
+    }
+    ArrayList<Weapon> weapons = new ArrayList<Weapon>();
 }

@@ -6,12 +6,12 @@ public class Main {
 
         barsik.setAge(-5);
 
-        Cat g1 = new Cat();
-        Cat g2 = new Cat("Kruz");
+        Weapon sword = new Weapon(10);
+        Weapon secondSword = new Weapon(15);
 
+        barsik.addWeapon(sword);
+        barsik.addWeapon(secondSword);
         barsik.disployInfo();
-        g1.disployInfo();
-        g2.disployInfo();
 
         Dog d1 = new Dog();
 

@@ -1,11 +1,15 @@
 import java.util.Random;
 
-public class Cat extends Animal {
+public class Cat extends Animal implements DisplayInfo, Attackeble{
     {
         this.name = "Koshak";
         this.age = 3;
         this.attack = 14;
     }
+    interface Healleable{
+        void heal();
+    }
+
 
     void setAge(int age){
         if(age >= 0 && age < 40){
@@ -15,9 +19,7 @@ public class Cat extends Animal {
 
 
 
-    void disployInfo(){
-        System.out.println(name + " " + age);
-    }
+
 
     Cat(String name, int age){
         this.name = name;
@@ -32,17 +34,24 @@ public class Cat extends Animal {
 
     }
 
-    @Override
+
     void punch(Animal enemy) {
         Random rnd = new Random();
-        int damageBonus = 0;
-        for(Weapon weap : weapons){
-            damageBonus += weap.damagePlus;
+        int bonusDamage = 0;
+        for(Weapon wp : weapons){
+            bonusDamage += wp.damageIncr;
         }
 
-        int punch = attack + damageBonus + rnd.nextInt(-5, 5);
+        int punch = attack + bonusDamage + rnd.nextInt(-5, 5);
         enemy.hp -= punch;
         System.out.println(name + " ударил палкой c силой "+ punch + " " + enemy.name + " , у противника" +
                 "осталось хп: " + enemy.hp);
     }
+
+    @Override
+    public void displayInfo() {
+        System.out.println(name + " " + age);
+    }
+
+
 }

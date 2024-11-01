@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Dog extends Animal
+public class Dog extends Animal implements Cat.Healleable, Attackeble
 {
     {
         this.age = 24;
@@ -15,5 +15,10 @@ public class Dog extends Animal
         enemy.hp -= punch;
         System.out.println(name + " кастанул заклинание с силой "+ punch + " " + enemy.name + " , у противника" +
                 "осталось хп: " + enemy.hp);
+    }
+
+    @Override
+    public void heal() {
+        this.hp += 10;
     }
 }
